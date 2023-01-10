@@ -4,7 +4,7 @@ package com.example.cine.models;
 import jakarta.persistence.*;
 
 import javax.annotation.processing.Generated;
-
+// HOLA COMO VA
 @Entity
 public class Usuario {
     @Id
