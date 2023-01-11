@@ -1,18 +1,24 @@
 package com.example.cine.models;
-
-
 import jakarta.persistence.*;
 
-import javax.annotation.processing.Generated;
-// HOLA COMO VA
 @Entity
-public class Usuario {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long idUser;
     private String name;
     private String email;
+
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Long getIdUser() {
         return idUser;
