@@ -2,9 +2,11 @@ package com.example.cine;
 
 import com.example.cine.models.User;
 import com.example.cine.services.UserService;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 
 import java.util.List;
 
@@ -16,6 +18,8 @@ public class UserServiceTest {
     private UserService userService;
 
     @Test
+    @Transactional
+    @Rollback
     void thatWhenCreatingUserShouldObtainOneUser() {
         User usuario = new User();
         usuario.setName("Pepe");
@@ -27,6 +31,8 @@ public class UserServiceTest {
     }
 
     @Test
+    @Transactional
+    @Rollback
     void thatWhenCreatingUserShouldObtainTwoUsers() {
         User usuario = new User();
         usuario.setName("Pepe");
