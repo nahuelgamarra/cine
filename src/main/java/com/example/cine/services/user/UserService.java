@@ -1,4 +1,4 @@
-package com.example.cine.services;
+package com.example.cine.services.user;
 
 import com.example.cine.models.User;
 import java.util.List;

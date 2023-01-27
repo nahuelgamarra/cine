@@ -1,7 +1,7 @@
 package com.example.cine.controllers;
 
 import com.example.cine.models.User;
-import com.example.cine.services.UserService;
+import com.example.cine.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

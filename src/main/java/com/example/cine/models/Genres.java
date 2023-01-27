@@ -1,4 +1,5 @@
 package com.example.cine.models;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,16 +8,14 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "genero")
 @NoArgsConstructor
 @AllArgsConstructor
-public @Data class User implements Serializable {
+public @Data class Genres implements Serializable{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
-    private Long idUser;
-    private String name;
-    private String email;
+    private Long id;
 
-    private String password;
+    private String name;
 }

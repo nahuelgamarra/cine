@@ -1,7 +1,7 @@
 package com.example.cine;
 
 import com.example.cine.models.User;
-import com.example.cine.services.UserService;
+import com.example.cine.services.user.UserService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
