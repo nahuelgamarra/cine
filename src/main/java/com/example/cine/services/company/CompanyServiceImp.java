@@ -6,6 +6,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class CompanyServiceImp implements CompanyService{
@@ -16,5 +18,10 @@ public class CompanyServiceImp implements CompanyService{
     @Override
     public Company createdCompany(Company cmp) {
         return this.repository.save(cmp);
+    }
+
+    @Override
+    public List<Company> findAll() {
+        return (List<Company>) this.repository.findAll();
     }
 }

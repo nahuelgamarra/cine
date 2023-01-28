@@ -13,7 +13,7 @@ import java.io.Serializable;
 public @Data class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, name = "id")
     private Long idUser;
     private String name;
     private String email;
