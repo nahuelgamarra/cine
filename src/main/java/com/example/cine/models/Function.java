@@ -12,38 +12,31 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
+@Table(name = "funcion")
 @NoArgsConstructor
 @AllArgsConstructor
-public @Data class Movie implements Serializable {
+public @Data class Function implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long idMovie;
+    private Long idFuncion;
 
-    private String title;
-
-    private String description;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "pelicula_Compania",
-            joinColumns = @JoinColumn(name = "idPelicula"),
-            inverseJoinColumns = @JoinColumn(name = "idCompania"))
-    private List<Company> listCompany;
 
     @JsonFormat(pattern = ("yyyy/MM/dd HH:mm:ss"))
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    private LocalDateTime fechEstreno;
+    private LocalDateTime dat;
 
-    private Boolean adult;
+    private Double price;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "pelicula_Genero",
-            joinColumns = @JoinColumn(name = "idPelicula"),
-            inverseJoinColumns = @JoinColumn(name = "idGenero"))
-    private List<Genre> genreList;
+    private Integer entDisp;
+
+    @ManyToOne
+    private Movie movie;
+
+    @ManyToOne
+    private Sala sala;
 }

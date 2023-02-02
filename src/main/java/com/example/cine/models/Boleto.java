@@ -12,38 +12,38 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public @Data class Movie implements Serializable {
-
+public @Data class Boleto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long idMovie;
+    private Long id;
 
-    private String title;
+    @ManyToOne
+    private User cliente;
 
-    private String description;
+    @ManyToOne
+    @JoinColumn(name = "funcion_id")
+    private Function funcion;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "pelicula_Compania",
-            joinColumns = @JoinColumn(name = "idPelicula"),
-            inverseJoinColumns = @JoinColumn(name = "idCompania"))
-    private List<Company> listCompany;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name="BUTACA_ID")
+    private Butaca butaca;
+
+    private Float precio;
+
+    private Boolean usado=false;
 
     @JsonFormat(pattern = ("yyyy/MM/dd HH:mm:ss"))
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    private LocalDateTime fechEstreno;
+    private LocalDateTime fechaComprado;
 
-    private Boolean adult;
+    private Boolean fueAdquiridoConEntradaGratis=false;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "pelicula_Genero",
-            joinColumns = @JoinColumn(name = "idPelicula"),
-            inverseJoinColumns = @JoinColumn(name = "idGenero"))
-    private List<Genre> genreList;
+    private Boolean temporal=false;
+
+    private String idpago;
 }
