@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -21,6 +22,9 @@ public class Sala implements Serializable {
 
     private Integer cantCol;
 
+   /* @ManyToOne
+    private Butaca butacaList;
+*/
     @Enumerated(EnumType.STRING)
     private TipoDeSala tipo;
 }

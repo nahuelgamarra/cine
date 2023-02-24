@@ -40,10 +40,4 @@ public @Data class Boleto implements Serializable {
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime fechaComprado;
-
-    private Boolean fueAdquiridoConEntradaGratis=false;
-
-    private Boolean temporal=false;
-
-    private String idpago;
 }

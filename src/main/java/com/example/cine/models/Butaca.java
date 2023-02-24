@@ -10,13 +10,16 @@ import java.io.Serializable;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public @Data class Butaca implements Serializable {
+public @Data class Butaca implements Serializable { // 1 1 1
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer nroUbicacion;
 
+
     @ManyToOne
     private Sala sala;
+
+    private Boolean opcupado;
 }

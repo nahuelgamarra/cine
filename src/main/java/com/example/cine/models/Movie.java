@@ -8,6 +8,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
@@ -15,8 +16,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor //vacio
+@AllArgsConstructor //
 public @Data class Movie implements Serializable {
 
     @Id
