@@ -18,13 +18,11 @@ public class Sala implements Serializable {
     @Column(name = "id")
     private Long idSala;
 
-    private Integer fil;
+    @ManyToOne
+    private Butaca butaca;
 
-    private Integer cantCol;
+    private Integer capacity;
 
-   /* @ManyToOne
-    private Butaca butacaList;
-*/
     @Enumerated(EnumType.STRING)
-    private TipoDeSala tipo;
+    private TipoDeSala type;
 }

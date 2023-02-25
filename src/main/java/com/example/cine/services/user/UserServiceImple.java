@@ -1,5 +1,6 @@
 package com.example.cine.services.user;
 
+import com.example.cine.exceptions.UserNotFoundException;
 import com.example.cine.models.User;
 import com.example.cine.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,19 @@ public class UserServiceImple implements UserService {
     @Override
     public List<User> findAllUsers() {
        return (List<User>) userRepository.findAll();
+    }
+
+    @Override
+    public User findUserById(Long id) throws UserNotFoundException {
+        User userSearched = this.userRepository.findById(id).orElseThrow();
+        return userSearched;
+    }
+
+    @Override
+    public User findUserByEmail(String email) throws UserNotFoundException {
+        User userSearched = this.userRepository.findUserByEmail(email);
+        if(userSearched == null)
+            throw new UserNotFoundException("No existe, chau");
+        return userSearched;
     }
 }

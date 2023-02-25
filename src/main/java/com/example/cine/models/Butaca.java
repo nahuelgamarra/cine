@@ -17,9 +17,5 @@ public @Data class Butaca implements Serializable { // 1 1 1
     private Long id;
     private Integer nroUbicacion;
 
-
-    @ManyToOne
-    private Sala sala;
-
-    private Boolean opcupado;
+    private Boolean ocupado;
 }

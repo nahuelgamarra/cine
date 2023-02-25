@@ -28,12 +28,6 @@ public @Data class Boleto implements Serializable {
     @JoinColumn(name = "funcion_id")
     private Function funcion;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="BUTACA_ID")
-    private Butaca butaca;
-
-    private Float precio;
-
     private Boolean usado=false;
 
     @JsonFormat(pattern = ("yyyy/MM/dd HH:mm:ss"))
