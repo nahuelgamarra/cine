@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImple implements UserService {
@@ -34,10 +35,7 @@ public class UserServiceImple implements UserService {
     }
 
     @Override
-    public User findUserByEmail(String email) throws UserNotFoundException {
-        User userSearched = this.userRepository.findUserByEmail(email);
-        if(userSearched == null)
-            throw new UserNotFoundException("No existe, chau");
-        return userSearched;
+    public Optional<User> findUserByEmail(String email) throws UserNotFoundException {
+        return Optional.ofNullable(this.userRepository.findUserByEmail(email)).orElseThrow(() -> new UserNotFoundException("error"));
     }
 }

@@ -5,11 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends CrudRepository<User,Long> {
-
-    public User findUserByIdUser(Long id);
-
-    public User findUserByEmail(String email);
+    public Optional<User> findUserByEmail(String email);
 
 }

@@ -3,6 +3,7 @@ package com.example.cine.services.user;
 import com.example.cine.exceptions.UserNotFoundException;
 import com.example.cine.models.User;
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
@@ -12,5 +13,5 @@ public interface UserService {
 
     public User findUserById(Long id) throws UserNotFoundException;
 
-    public User findUserByEmail(String email) throws UserNotFoundException;
+    public Optional<User> findUserByEmail(String email) throws UserNotFoundException;
 }
