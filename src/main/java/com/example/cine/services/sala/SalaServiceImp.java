@@ -33,6 +33,7 @@ public class SalaServiceImp implements SalaService{
 
     @Override
     public List<Sala> findByTypeOfSala(TipoDeSala tipoDeSala) {
+
         return this.repo.findAllByTipo(tipoDeSala);
     }
 }

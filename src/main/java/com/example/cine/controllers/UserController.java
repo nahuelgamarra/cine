@@ -2,6 +2,7 @@ package com.example.cine.controllers;
 
 import com.example.cine.models.User;
 import com.example.cine.services.user.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@RequiredArgsConstructor
 public class UserController {
     private UserService userService;
 
@@ -22,7 +24,7 @@ public class UserController {
         return this.userService.findAllUsers();
     }
 
-    @PostMapping()
+    @PostMapping
     public void saveUser(@RequestBody User user){
         this.userService.saveUser(user);
     }
